@@ -1,0 +1,1215 @@
+Mplus VERSION 7
+MUTHEN & MUTHEN
+03/06/2017  10:41 PM
+
+INPUT INSTRUCTIONS
+
+  Title: CFA retest step 1
+    Data: file is wave1.csv;
+    variable: names are
+      tsd1_1 tsd1_2 tsd1_3
+      tsd1_4 tsd1_5 tsd1_6 tsd1_8 tsd1_9 tsd1_10 tsd1_11
+      tsd1_12 tsd1_13 tsd1_14 tsd1_15 tsd1_16 tsd1_17
+      tsd1_18 tsd1_19 tsd1_20 tsd1_22 tsd1_23 tsd1_24
+      tsd1_7r tsd1_21r tsd1_25r ;
+
+    define:
+      standardize tsd1_1-tsd1_25r;
+    Analysis:
+    estimator=Bayes;
+    chain = 3;
+
+  BITERATION = 200000 1000;
+    thin=10;
+
+
+    model:
+    F1 by tsd1_3* tsd1_8 tsd1_13 tsd1_16 tsd1_24 ;
+    F2 by tsd1_5* tsd1_7r tsd1_12 tsd1_18 tsd1_22 ;
+    F3 by tsd1_2* tsd1_10 tsd1_15 tsd1_21r tsd1_25r ;
+    F4 by tsd1_6* tsd1_19 tsd1_23 tsd1_11 tsd1_14;
+    F5 by tsd1_1* tsd1_4 tsd1_9 tsd1_17 tsd1_20 ;
+    F1@1; F2@1; F3@1; F4@1; F5@1;
+
+
+
+  output:
+   tech1 tech8 svalues;
+
+
+
+
+*** WARNING in DEFINE command
+  The STANDARDIZE transformation is done after all other DEFINE transformations
+  have been completed.
+   1 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+CFA retest step 1
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                         543
+
+Number of dependent variables                                   25
+Number of independent variables                                  0
+Number of continuous latent variables                            5
+
+Observed dependent variables
+
+  Continuous
+   TSD1_1      TSD1_2      TSD1_3      TSD1_4      TSD1_5      TSD1_6
+   TSD1_8      TSD1_9      TSD1_10     TSD1_11     TSD1_12     TSD1_13
+   TSD1_14     TSD1_15     TSD1_16     TSD1_17     TSD1_18     TSD1_19
+   TSD1_20     TSD1_22     TSD1_23     TSD1_24     TSD1_7R     TSD1_21R
+   TSD1_25R
+
+Continuous latent variables
+   F1          F2          F3          F4          F5
+
+
+Estimator                                                    BAYES
+Specifications for Bayesian Estimation
+  Point estimate                                            MEDIAN
+  Number of Markov chain Monte Carlo (MCMC) chains               3
+  Random seed for the first chain                                0
+  Starting value information                           UNPERTURBED
+  Treatment of categorical mediator                         LATENT
+  Algorithm used for Markov chain Monte Carlo           GIBBS(PX1)
+  Convergence criterion                                  0.500D-01
+  Maximum number of iterations                              200000
+  K-th iteration used for thinning                              10
+
+Input data file(s)
+  wave1rr.csv
+Input data format  FREE
+
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+     USE THE FBITERATIONS OPTION TO INCREASE THE NUMBER OF ITERATIONS BY A FACTOR
+     OF AT LEAST TWO TO CHECK CONVERGENCE AND THAT THE PSR VALUE DOES NOT INCREASE.
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                              85
+
+Bayesian Posterior Predictive Checking using Chi-Square
+
+          95% Confidence Interval for the Difference Between
+          the Observed and the Replicated Chi-Square Values
+
+                                873.957          1019.307
+
+          Posterior Predictive P-Value              0.000
+
+Information Criterion
+
+          Deviance (DIC)                        33778.460
+          Estimated Number of Parameters (pD)      85.572
+          Bayesian (BIC)                        34142.659
+
+
+
+MODEL RESULTS
+
+                                Posterior  One-Tailed         95% C.I.
+                    Estimate       S.D.      P-Value   Lower 2.5%  Upper 2.5%  Significance
+
+ F1       BY
+    TSD1_3             0.357       0.046      0.000       0.288       0.466      *
+    TSD1_8             0.737       0.040      0.000       0.666       0.813      *
+    TSD1_13            0.668       0.045      0.000       0.562       0.742      *
+    TSD1_16            0.609       0.044      0.000       0.522       0.695      *
+    TSD1_24            0.731       0.047      0.000       0.646       0.822      *
+
+ F2       BY
+    TSD1_5             0.638       0.039      0.000       0.554       0.701      *
+    TSD1_7R            0.816       0.032      0.000       0.751       0.874      *
+    TSD1_12            0.762       0.041      0.000       0.694       0.840      *
+    TSD1_18            0.656       0.039      0.000       0.578       0.719      *
+    TSD1_22            0.562       0.047      0.000       0.453       0.646      *
+
+ F3       BY
+    TSD1_2             0.883       0.035      0.000       0.822       0.952      *
+    TSD1_10            0.873       0.032      0.000       0.813       0.934      *
+    TSD1_15            0.712       0.040      0.000       0.627       0.767      *
+    TSD1_21R           0.581       0.039      0.000       0.509       0.652      *
+    TSD1_25R           0.669       0.042      0.000       0.585       0.747      *
+
+ F4       BY
+    TSD1_6            -0.224       0.046      0.000      -0.305      -0.122      *
+    TSD1_19           -0.313       0.046      0.000      -0.396      -0.222      *
+    TSD1_23           -0.123       0.047      0.000      -0.233      -0.044      *
+    TSD1_11            0.727       0.042      0.000       0.641       0.804      *
+    TSD1_14            0.888       0.041      0.000       0.818       0.970      *
+
+ F5       BY
+    TSD1_1             0.839       0.036      0.000       0.751       0.892      *
+    TSD1_4             0.747       0.036      0.000       0.678       0.828      *
+    TSD1_9             0.717       0.039      0.000       0.628       0.786      *
+    TSD1_17            0.654       0.038      0.000       0.575       0.723      *
+    TSD1_20            0.628       0.047      0.000       0.540       0.719      *
+
+ F2       WITH
+    F1                 0.198       0.060      0.000       0.071       0.297      *
+
+ F3       WITH
+    F1                 0.249       0.048      0.000       0.155       0.329      *
+    F2                 0.673       0.034      0.000       0.602       0.727      *
+
+ F4       WITH
+    F1                -0.324       0.053      0.000      -0.438      -0.235      *
+    F2                -0.658       0.036      0.000      -0.710      -0.580      *
+    F3                -0.451       0.041      0.000      -0.535      -0.374      *
+
+ F5       WITH
+    F1                -0.100       0.057      0.040      -0.223       0.001
+    F2                -0.777       0.034      0.000      -0.830      -0.698      *
+    F3                -0.536       0.042      0.000      -0.609      -0.451      *
+    F4                 0.714       0.033      0.000       0.644       0.781      *
+
+ Intercepts
+    TSD1_1            -0.005       0.040      0.413      -0.090       0.059
+    TSD1_2             0.005       0.039      0.447      -0.066       0.078
+    TSD1_3             0.003       0.041      0.427      -0.079       0.074
+    TSD1_4            -0.003       0.043      0.460      -0.079       0.077
+    TSD1_5             0.006       0.044      0.420      -0.073       0.079
+    TSD1_6             0.006       0.046      0.453      -0.091       0.075
+    TSD1_8            -0.001       0.042      0.473      -0.086       0.061
+    TSD1_9            -0.007       0.040      0.427      -0.077       0.073
+    TSD1_10            0.008       0.038      0.407      -0.064       0.085
+    TSD1_11            0.002       0.048      0.480      -0.113       0.082
+    TSD1_12            0.007       0.042      0.460      -0.076       0.093
+    TSD1_13           -0.002       0.039      0.467      -0.081       0.063
+    TSD1_14            0.000       0.042      0.500      -0.096       0.062
+    TSD1_15            0.004       0.038      0.473      -0.064       0.070
+    TSD1_16            0.001       0.042      0.487      -0.076       0.080
+    TSD1_17            0.000       0.042      0.500      -0.088       0.073
+    TSD1_18            0.015       0.042      0.373      -0.062       0.088
+    TSD1_19            0.002       0.040      0.473      -0.085       0.067
+    TSD1_20           -0.017       0.044      0.393      -0.094       0.064
+    TSD1_22            0.009       0.041      0.413      -0.066       0.086
+    TSD1_23            0.006       0.043      0.440      -0.079       0.090
+    TSD1_24            0.001       0.039      0.473      -0.079       0.073
+    TSD1_7R            0.007       0.042      0.407      -0.071       0.086
+    TSD1_21R           0.007       0.043      0.433      -0.076       0.086
+    TSD1_25R           0.008       0.041      0.440      -0.068       0.087
+
+ Variances
+    F1                 1.000       0.000      0.000       1.000       1.000
+    F2                 1.000       0.000      0.000       1.000       1.000
+    F3                 1.000       0.000      0.000       1.000       1.000
+    F4                 1.000       0.000      0.000       1.000       1.000
+    F5                 1.000       0.000      0.000       1.000       1.000
+
+ Residual Variances
+    TSD1_1             0.325       0.029      0.000       0.274       0.385      *
+    TSD1_2             0.235       0.021      0.000       0.191       0.276      *
+    TSD1_3             0.873       0.056      0.000       0.781       0.992      *
+    TSD1_4             0.444       0.033      0.000       0.385       0.513      *
+    TSD1_5             0.602       0.040      0.000       0.521       0.693      *
+    TSD1_6             0.970       0.060      0.000       0.856       1.073      *
+    TSD1_8             0.461       0.040      0.000       0.385       0.537      *
+    TSD1_9             0.501       0.036      0.000       0.432       0.575      *
+    TSD1_10            0.243       0.023      0.000       0.200       0.285      *
+    TSD1_11            0.494       0.041      0.000       0.430       0.578      *
+    TSD1_12            0.426       0.035      0.000       0.363       0.493      *
+    TSD1_13            0.562       0.049      0.000       0.470       0.649      *
+    TSD1_14            0.216       0.045      0.000       0.119       0.296      *
+    TSD1_15            0.506       0.040      0.000       0.439       0.588      *
+    TSD1_16            0.639       0.052      0.000       0.555       0.753      *
+    TSD1_17            0.587       0.038      0.000       0.516       0.660      *
+    TSD1_18            0.584       0.036      0.000       0.510       0.646      *
+    TSD1_19            0.906       0.068      0.000       0.808       1.055      *
+    TSD1_20            0.618       0.043      0.000       0.538       0.707      *
+    TSD1_22            0.705       0.043      0.000       0.633       0.781      *
+    TSD1_23            0.992       0.058      0.000       0.893       1.108      *
+    TSD1_24            0.475       0.042      0.000       0.386       0.546      *
+    TSD1_7R            0.352       0.030      0.000       0.288       0.403      *
+    TSD1_21R           0.670       0.043      0.000       0.590       0.755      *
+    TSD1_25R           0.558       0.036      0.000       0.498       0.626      *
+
+
+MODEL COMMAND WITH FINAL ESTIMATES USED AS STARTING VALUES
+
+     f1 BY tsd1_3*0.35712;
+     f1 BY tsd1_8*0.73723;
+     f1 BY tsd1_13*0.66755;
+     f1 BY tsd1_16*0.60895;
+     f1 BY tsd1_24*0.73116;
+     f2 BY tsd1_5*0.63835;
+     f2 BY tsd1_7r*0.81572;
+     f2 BY tsd1_12*0.76219;
+     f2 BY tsd1_18*0.65650;
+     f2 BY tsd1_22*0.56150;
+     f3 BY tsd1_2*0.88273;
+     f3 BY tsd1_10*0.87314;
+     f3 BY tsd1_15*0.71163;
+     f3 BY tsd1_21r*0.58064;
+     f3 BY tsd1_25r*0.66853;
+     f4 BY tsd1_6*-0.22420;
+     f4 BY tsd1_19*-0.31266;
+     f4 BY tsd1_23*-0.12329;
+     f4 BY tsd1_11*0.72698;
+     f4 BY tsd1_14*0.88808;
+     f5 BY tsd1_1*0.83895;
+     f5 BY tsd1_4*0.74661;
+     f5 BY tsd1_9*0.71719;
+     f5 BY tsd1_17*0.65411;
+     f5 BY tsd1_20*0.62753;
+
+     f2 WITH f1*0.19806;
+     f3 WITH f1*0.24870;
+     f3 WITH f2*0.67302;
+     f4 WITH f1*-0.32437;
+     f4 WITH f2*-0.65757;
+     f4 WITH f3*-0.45126;
+     f5 WITH f1*-0.09966;
+     f5 WITH f2*-0.77734;
+     f5 WITH f3*-0.53583;
+     f5 WITH f4*0.71377;
+
+     [ tsd1_1*-0.00530 ];
+     [ tsd1_2*0.00504 ];
+     [ tsd1_3*0.00339 ];
+     [ tsd1_4*-0.00313 ];
+     [ tsd1_5*0.00620 ];
+     [ tsd1_6*0.00569 ];
+     [ tsd1_8*-0.00114 ];
+     [ tsd1_9*-0.00725 ];
+     [ tsd1_10*0.00849 ];
+     [ tsd1_11*0.00173 ];
+     [ tsd1_12*0.00713 ];
+     [ tsd1_13*-0.00236 ];
+     [ tsd1_14*-0.00023 ];
+     [ tsd1_15*0.00370 ];
+     [ tsd1_16*0.00145 ];
+     [ tsd1_17*0.00021 ];
+     [ tsd1_18*0.01461 ];
+     [ tsd1_19*0.00221 ];
+     [ tsd1_20*-0.01742 ];
+     [ tsd1_22*0.00893 ];
+     [ tsd1_23*0.00552 ];
+     [ tsd1_24*0.00110 ];
+     [ tsd1_7r*0.00729 ];
+     [ tsd1_21r*0.00663 ];
+     [ tsd1_25r*0.00762 ];
+
+     tsd1_1*0.32517;
+     tsd1_2*0.23499;
+     tsd1_3*0.87260;
+     tsd1_4*0.44359;
+     tsd1_5*0.60231;
+     tsd1_6*0.96968;
+     tsd1_8*0.46098;
+     tsd1_9*0.50130;
+     tsd1_10*0.24316;
+     tsd1_11*0.49351;
+     tsd1_12*0.42557;
+     tsd1_13*0.56236;
+     tsd1_14*0.21620;
+     tsd1_15*0.50608;
+     tsd1_16*0.63925;
+     tsd1_17*0.58741;
+     tsd1_18*0.58377;
+     tsd1_19*0.90600;
+     tsd1_20*0.61759;
+     tsd1_22*0.70517;
+     tsd1_23*0.99222;
+     tsd1_24*0.47521;
+     tsd1_7r*0.35164;
+     tsd1_21r*0.66993;
+     tsd1_25r*0.55771;
+     f1@1;
+     f2@1;
+     f3@1;
+     f4@1;
+     f5@1;
+
+
+
+TECHNICAL 1 OUTPUT
+
+
+     PARAMETER SPECIFICATION
+
+
+           NU
+              TSD1_1        TSD1_2        TSD1_3        TSD1_4        TSD1_5
+              ________      ________      ________      ________      ________
+ 1                  1             2             3             4             5
+
+
+           NU
+              TSD1_6        TSD1_8        TSD1_9        TSD1_10       TSD1_11
+              ________      ________      ________      ________      ________
+ 1                  6             7             8             9            10
+
+
+           NU
+              TSD1_12       TSD1_13       TSD1_14       TSD1_15       TSD1_16
+              ________      ________      ________      ________      ________
+ 1                 11            12            13            14            15
+
+
+           NU
+              TSD1_17       TSD1_18       TSD1_19       TSD1_20       TSD1_22
+              ________      ________      ________      ________      ________
+ 1                 16            17            18            19            20
+
+
+           NU
+              TSD1_23       TSD1_24       TSD1_7R       TSD1_21R      TSD1_25R
+              ________      ________      ________      ________      ________
+ 1                 21            22            23            24            25
+
+
+           LAMBDA
+              F1            F2            F3            F4            F5
+              ________      ________      ________      ________      ________
+ TSD1_1             0             0             0             0            26
+ TSD1_2             0             0            27             0             0
+ TSD1_3            28             0             0             0             0
+ TSD1_4             0             0             0             0            29
+ TSD1_5             0            30             0             0             0
+ TSD1_6             0             0             0            31             0
+ TSD1_8            32             0             0             0             0
+ TSD1_9             0             0             0             0            33
+ TSD1_10            0             0            34             0             0
+ TSD1_11            0             0             0            35             0
+ TSD1_12            0            36             0             0             0
+ TSD1_13           37             0             0             0             0
+ TSD1_14            0             0             0            38             0
+ TSD1_15            0             0            39             0             0
+ TSD1_16           40             0             0             0             0
+ TSD1_17            0             0             0             0            41
+ TSD1_18            0            42             0             0             0
+ TSD1_19            0             0             0            43             0
+ TSD1_20            0             0             0             0            44
+ TSD1_22            0            45             0             0             0
+ TSD1_23            0             0             0            46             0
+ TSD1_24           47             0             0             0             0
+ TSD1_7R            0            48             0             0             0
+ TSD1_21R           0             0            49             0             0
+ TSD1_25R           0             0            50             0             0
+
+
+           THETA
+              TSD1_1        TSD1_2        TSD1_3        TSD1_4        TSD1_5
+              ________      ________      ________      ________      ________
+ TSD1_1            51
+ TSD1_2             0            52
+ TSD1_3             0             0            53
+ TSD1_4             0             0             0            54
+ TSD1_5             0             0             0             0            55
+ TSD1_6             0             0             0             0             0
+ TSD1_8             0             0             0             0             0
+ TSD1_9             0             0             0             0             0
+ TSD1_10            0             0             0             0             0
+ TSD1_11            0             0             0             0             0
+ TSD1_12            0             0             0             0             0
+ TSD1_13            0             0             0             0             0
+ TSD1_14            0             0             0             0             0
+ TSD1_15            0             0             0             0             0
+ TSD1_16            0             0             0             0             0
+ TSD1_17            0             0             0             0             0
+ TSD1_18            0             0             0             0             0
+ TSD1_19            0             0             0             0             0
+ TSD1_20            0             0             0             0             0
+ TSD1_22            0             0             0             0             0
+ TSD1_23            0             0             0             0             0
+ TSD1_24            0             0             0             0             0
+ TSD1_7R            0             0             0             0             0
+ TSD1_21R           0             0             0             0             0
+ TSD1_25R           0             0             0             0             0
+
+
+           THETA
+              TSD1_6        TSD1_8        TSD1_9        TSD1_10       TSD1_11
+              ________      ________      ________      ________      ________
+ TSD1_6            56
+ TSD1_8             0            57
+ TSD1_9             0             0            58
+ TSD1_10            0             0             0            59
+ TSD1_11            0             0             0             0            60
+ TSD1_12            0             0             0             0             0
+ TSD1_13            0             0             0             0             0
+ TSD1_14            0             0             0             0             0
+ TSD1_15            0             0             0             0             0
+ TSD1_16            0             0             0             0             0
+ TSD1_17            0             0             0             0             0
+ TSD1_18            0             0             0             0             0
+ TSD1_19            0             0             0             0             0
+ TSD1_20            0             0             0             0             0
+ TSD1_22            0             0             0             0             0
+ TSD1_23            0             0             0             0             0
+ TSD1_24            0             0             0             0             0
+ TSD1_7R            0             0             0             0             0
+ TSD1_21R           0             0             0             0             0
+ TSD1_25R           0             0             0             0             0
+
+
+           THETA
+              TSD1_12       TSD1_13       TSD1_14       TSD1_15       TSD1_16
+              ________      ________      ________      ________      ________
+ TSD1_12           61
+ TSD1_13            0            62
+ TSD1_14            0             0            63
+ TSD1_15            0             0             0            64
+ TSD1_16            0             0             0             0            65
+ TSD1_17            0             0             0             0             0
+ TSD1_18            0             0             0             0             0
+ TSD1_19            0             0             0             0             0
+ TSD1_20            0             0             0             0             0
+ TSD1_22            0             0             0             0             0
+ TSD1_23            0             0             0             0             0
+ TSD1_24            0             0             0             0             0
+ TSD1_7R            0             0             0             0             0
+ TSD1_21R           0             0             0             0             0
+ TSD1_25R           0             0             0             0             0
+
+
+           THETA
+              TSD1_17       TSD1_18       TSD1_19       TSD1_20       TSD1_22
+              ________      ________      ________      ________      ________
+ TSD1_17           66
+ TSD1_18            0            67
+ TSD1_19            0             0            68
+ TSD1_20            0             0             0            69
+ TSD1_22            0             0             0             0            70
+ TSD1_23            0             0             0             0             0
+ TSD1_24            0             0             0             0             0
+ TSD1_7R            0             0             0             0             0
+ TSD1_21R           0             0             0             0             0
+ TSD1_25R           0             0             0             0             0
+
+
+           THETA
+              TSD1_23       TSD1_24       TSD1_7R       TSD1_21R      TSD1_25R
+              ________      ________      ________      ________      ________
+ TSD1_23           71
+ TSD1_24            0            72
+ TSD1_7R            0             0            73
+ TSD1_21R           0             0             0            74
+ TSD1_25R           0             0             0             0            75
+
+
+           ALPHA
+              F1            F2            F3            F4            F5
+              ________      ________      ________      ________      ________
+ 1                  0             0             0             0             0
+
+
+           BETA
+              F1            F2            F3            F4            F5
+              ________      ________      ________      ________      ________
+ F1                 0             0             0             0             0
+ F2                 0             0             0             0             0
+ F3                 0             0             0             0             0
+ F4                 0             0             0             0             0
+ F5                 0             0             0             0             0
+
+
+           PSI
+              F1            F2            F3            F4            F5
+              ________      ________      ________      ________      ________
+ F1                 0
+ F2                76             0
+ F3                77            78             0
+ F4                79            80            81             0
+ F5                82            83            84            85             0
+
+
+     STARTING VALUES
+
+
+           NU
+              TSD1_1        TSD1_2        TSD1_3        TSD1_4        TSD1_5
+              ________      ________      ________      ________      ________
+ 1              0.000         0.000         0.000         0.000         0.000
+
+
+           NU
+              TSD1_6        TSD1_8        TSD1_9        TSD1_10       TSD1_11
+              ________      ________      ________      ________      ________
+ 1              0.000         0.000         0.000         0.000         0.000
+
+
+           NU
+              TSD1_12       TSD1_13       TSD1_14       TSD1_15       TSD1_16
+              ________      ________      ________      ________      ________
+ 1              0.000         0.000         0.000         0.000         0.000
+
+
+           NU
+              TSD1_17       TSD1_18       TSD1_19       TSD1_20       TSD1_22
+              ________      ________      ________      ________      ________
+ 1              0.000         0.000         0.000         0.000         0.000
+
+
+           NU
+              TSD1_23       TSD1_24       TSD1_7R       TSD1_21R      TSD1_25R
+              ________      ________      ________      ________      ________
+ 1              0.000         0.000         0.000         0.000         0.000
+
+
+           LAMBDA
+              F1            F2            F3            F4            F5
+              ________      ________      ________      ________      ________
+ TSD1_1         0.000         0.000         0.000         0.000         1.000
+ TSD1_2         0.000         0.000         1.000         0.000         0.000
+ TSD1_3         1.000         0.000         0.000         0.000         0.000
+ TSD1_4         0.000         0.000         0.000         0.000         1.000
+ TSD1_5         0.000         1.000         0.000         0.000         0.000
+ TSD1_6         0.000         0.000         0.000         1.000         0.000
+ TSD1_8         1.000         0.000         0.000         0.000         0.000
+ TSD1_9         0.000         0.000         0.000         0.000         1.000
+ TSD1_10        0.000         0.000         1.000         0.000         0.000
+ TSD1_11        0.000         0.000         0.000         1.000         0.000
+ TSD1_12        0.000         1.000         0.000         0.000         0.000
+ TSD1_13        1.000         0.000         0.000         0.000         0.000
+ TSD1_14        0.000         0.000         0.000         1.000         0.000
+ TSD1_15        0.000         0.000         1.000         0.000         0.000
+ TSD1_16        1.000         0.000         0.000         0.000         0.000
+ TSD1_17        0.000         0.000         0.000         0.000         1.000
+ TSD1_18        0.000         1.000         0.000         0.000         0.000
+ TSD1_19        0.000         0.000         0.000         1.000         0.000
+ TSD1_20        0.000         0.000         0.000         0.000         1.000
+ TSD1_22        0.000         1.000         0.000         0.000         0.000
+ TSD1_23        0.000         0.000         0.000         1.000         0.000
+ TSD1_24        1.000         0.000         0.000         0.000         0.000
+ TSD1_7R        0.000         1.000         0.000         0.000         0.000
+ TSD1_21R       0.000         0.000         1.000         0.000         0.000
+ TSD1_25R       0.000         0.000         1.000         0.000         0.000
+
+
+           THETA
+              TSD1_1        TSD1_2        TSD1_3        TSD1_4        TSD1_5
+              ________      ________      ________      ________      ________
+ TSD1_1         0.500
+ TSD1_2         0.000         0.500
+ TSD1_3         0.000         0.000         0.500
+ TSD1_4         0.000         0.000         0.000         0.500
+ TSD1_5         0.000         0.000         0.000         0.000         0.500
+ TSD1_6         0.000         0.000         0.000         0.000         0.000
+ TSD1_8         0.000         0.000         0.000         0.000         0.000
+ TSD1_9         0.000         0.000         0.000         0.000         0.000
+ TSD1_10        0.000         0.000         0.000         0.000         0.000
+ TSD1_11        0.000         0.000         0.000         0.000         0.000
+ TSD1_12        0.000         0.000         0.000         0.000         0.000
+ TSD1_13        0.000         0.000         0.000         0.000         0.000
+ TSD1_14        0.000         0.000         0.000         0.000         0.000
+ TSD1_15        0.000         0.000         0.000         0.000         0.000
+ TSD1_16        0.000         0.000         0.000         0.000         0.000
+ TSD1_17        0.000         0.000         0.000         0.000         0.000
+ TSD1_18        0.000         0.000         0.000         0.000         0.000
+ TSD1_19        0.000         0.000         0.000         0.000         0.000
+ TSD1_20        0.000         0.000         0.000         0.000         0.000
+ TSD1_22        0.000         0.000         0.000         0.000         0.000
+ TSD1_23        0.000         0.000         0.000         0.000         0.000
+ TSD1_24        0.000         0.000         0.000         0.000         0.000
+ TSD1_7R        0.000         0.000         0.000         0.000         0.000
+ TSD1_21R       0.000         0.000         0.000         0.000         0.000
+ TSD1_25R       0.000         0.000         0.000         0.000         0.000
+
+
+           THETA
+              TSD1_6        TSD1_8        TSD1_9        TSD1_10       TSD1_11
+              ________      ________      ________      ________      ________
+ TSD1_6         0.500
+ TSD1_8         0.000         0.500
+ TSD1_9         0.000         0.000         0.500
+ TSD1_10        0.000         0.000         0.000         0.500
+ TSD1_11        0.000         0.000         0.000         0.000         0.500
+ TSD1_12        0.000         0.000         0.000         0.000         0.000
+ TSD1_13        0.000         0.000         0.000         0.000         0.000
+ TSD1_14        0.000         0.000         0.000         0.000         0.000
+ TSD1_15        0.000         0.000         0.000         0.000         0.000
+ TSD1_16        0.000         0.000         0.000         0.000         0.000
+ TSD1_17        0.000         0.000         0.000         0.000         0.000
+ TSD1_18        0.000         0.000         0.000         0.000         0.000
+ TSD1_19        0.000         0.000         0.000         0.000         0.000
+ TSD1_20        0.000         0.000         0.000         0.000         0.000
+ TSD1_22        0.000         0.000         0.000         0.000         0.000
+ TSD1_23        0.000         0.000         0.000         0.000         0.000
+ TSD1_24        0.000         0.000         0.000         0.000         0.000
+ TSD1_7R        0.000         0.000         0.000         0.000         0.000
+ TSD1_21R       0.000         0.000         0.000         0.000         0.000
+ TSD1_25R       0.000         0.000         0.000         0.000         0.000
+
+
+           THETA
+              TSD1_12       TSD1_13       TSD1_14       TSD1_15       TSD1_16
+              ________      ________      ________      ________      ________
+ TSD1_12        0.500
+ TSD1_13        0.000         0.500
+ TSD1_14        0.000         0.000         0.500
+ TSD1_15        0.000         0.000         0.000         0.500
+ TSD1_16        0.000         0.000         0.000         0.000         0.500
+ TSD1_17        0.000         0.000         0.000         0.000         0.000
+ TSD1_18        0.000         0.000         0.000         0.000         0.000
+ TSD1_19        0.000         0.000         0.000         0.000         0.000
+ TSD1_20        0.000         0.000         0.000         0.000         0.000
+ TSD1_22        0.000         0.000         0.000         0.000         0.000
+ TSD1_23        0.000         0.000         0.000         0.000         0.000
+ TSD1_24        0.000         0.000         0.000         0.000         0.000
+ TSD1_7R        0.000         0.000         0.000         0.000         0.000
+ TSD1_21R       0.000         0.000         0.000         0.000         0.000
+ TSD1_25R       0.000         0.000         0.000         0.000         0.000
+
+
+           THETA
+              TSD1_17       TSD1_18       TSD1_19       TSD1_20       TSD1_22
+              ________      ________      ________      ________      ________
+ TSD1_17        0.500
+ TSD1_18        0.000         0.500
+ TSD1_19        0.000         0.000         0.500
+ TSD1_20        0.000         0.000         0.000         0.500
+ TSD1_22        0.000         0.000         0.000         0.000         0.500
+ TSD1_23        0.000         0.000         0.000         0.000         0.000
+ TSD1_24        0.000         0.000         0.000         0.000         0.000
+ TSD1_7R        0.000         0.000         0.000         0.000         0.000
+ TSD1_21R       0.000         0.000         0.000         0.000         0.000
+ TSD1_25R       0.000         0.000         0.000         0.000         0.000
+
+
+           THETA
+              TSD1_23       TSD1_24       TSD1_7R       TSD1_21R      TSD1_25R
+              ________      ________      ________      ________      ________
+ TSD1_23        0.500
+ TSD1_24        0.000         0.500
+ TSD1_7R        0.000         0.000         0.500
+ TSD1_21R       0.000         0.000         0.000         0.500
+ TSD1_25R       0.000         0.000         0.000         0.000         0.500
+
+
+           ALPHA
+              F1            F2            F3            F4            F5
+              ________      ________      ________      ________      ________
+ 1              0.000         0.000         0.000         0.000         0.000
+
+
+           BETA
+              F1            F2            F3            F4            F5
+              ________      ________      ________      ________      ________
+ F1             0.000         0.000         0.000         0.000         0.000
+ F2             0.000         0.000         0.000         0.000         0.000
+ F3             0.000         0.000         0.000         0.000         0.000
+ F4             0.000         0.000         0.000         0.000         0.000
+ F5             0.000         0.000         0.000         0.000         0.000
+
+
+           PSI
+              F1            F2            F3            F4            F5
+              ________      ________      ________      ________      ________
+ F1             1.000
+ F2             0.000         1.000
+ F3             0.000         0.000         1.000
+ F4             0.000         0.000         0.000         1.000
+ F5             0.000         0.000         0.000         0.000         1.000
+
+
+
+     PRIORS FOR ALL PARAMETERS            PRIOR MEAN      PRIOR VARIANCE     PRIOR STD. DEV.
+
+     Parameter 1~N(0.000,infinity)           0.0000            infinity            infinity
+     Parameter 2~N(0.000,infinity)           0.0000            infinity            infinity
+     Parameter 3~N(0.000,infinity)           0.0000            infinity            infinity
+     Parameter 4~N(0.000,infinity)           0.0000            infinity            infinity
+     Parameter 5~N(0.000,infinity)           0.0000            infinity            infinity
+     Parameter 6~N(0.000,infinity)           0.0000            infinity            infinity
+     Parameter 7~N(0.000,infinity)           0.0000            infinity            infinity
+     Parameter 8~N(0.000,infinity)           0.0000            infinity            infinity
+     Parameter 9~N(0.000,infinity)           0.0000            infinity            infinity
+     Parameter 10~N(0.000,infinity)          0.0000            infinity            infinity
+     Parameter 11~N(0.000,infinity)          0.0000            infinity            infinity
+     Parameter 12~N(0.000,infinity)          0.0000            infinity            infinity
+     Parameter 13~N(0.000,infinity)          0.0000            infinity            infinity
+     Parameter 14~N(0.000,infinity)          0.0000            infinity            infinity
+     Parameter 15~N(0.000,infinity)          0.0000            infinity            infinity
+     Parameter 16~N(0.000,infinity)          0.0000            infinity            infinity
+     Parameter 17~N(0.000,infinity)          0.0000            infinity            infinity
+     Parameter 18~N(0.000,infinity)          0.0000            infinity            infinity
+     Parameter 19~N(0.000,infinity)          0.0000            infinity            infinity
+     Parameter 20~N(0.000,infinity)          0.0000            infinity            infinity
+     Parameter 21~N(0.000,infinity)          0.0000            infinity            infinity
+     Parameter 22~N(0.000,infinity)          0.0000            infinity            infinity
+     Parameter 23~N(0.000,infinity)          0.0000            infinity            infinity
+     Parameter 24~N(0.000,infinity)          0.0000            infinity            infinity
+     Parameter 25~N(0.000,infinity)          0.0000            infinity            infinity
+     Parameter 26~N(0.000,infinity)          0.0000            infinity            infinity
+     Parameter 27~N(0.000,infinity)          0.0000            infinity            infinity
+     Parameter 28~N(0.000,infinity)          0.0000            infinity            infinity
+     Parameter 29~N(0.000,infinity)          0.0000            infinity            infinity
+     Parameter 30~N(0.000,infinity)          0.0000            infinity            infinity
+     Parameter 31~N(0.000,infinity)          0.0000            infinity            infinity
+     Parameter 32~N(0.000,infinity)          0.0000            infinity            infinity
+     Parameter 33~N(0.000,infinity)          0.0000            infinity            infinity
+     Parameter 34~N(0.000,infinity)          0.0000            infinity            infinity
+     Parameter 35~N(0.000,infinity)          0.0000            infinity            infinity
+     Parameter 36~N(0.000,infinity)          0.0000            infinity            infinity
+     Parameter 37~N(0.000,infinity)          0.0000            infinity            infinity
+     Parameter 38~N(0.000,infinity)          0.0000            infinity            infinity
+     Parameter 39~N(0.000,infinity)          0.0000            infinity            infinity
+     Parameter 40~N(0.000,infinity)          0.0000            infinity            infinity
+     Parameter 41~N(0.000,infinity)          0.0000            infinity            infinity
+     Parameter 42~N(0.000,infinity)          0.0000            infinity            infinity
+     Parameter 43~N(0.000,infinity)          0.0000            infinity            infinity
+     Parameter 44~N(0.000,infinity)          0.0000            infinity            infinity
+     Parameter 45~N(0.000,infinity)          0.0000            infinity            infinity
+     Parameter 46~N(0.000,infinity)          0.0000            infinity            infinity
+     Parameter 47~N(0.000,infinity)          0.0000            infinity            infinity
+     Parameter 48~N(0.000,infinity)          0.0000            infinity            infinity
+     Parameter 49~N(0.000,infinity)          0.0000            infinity            infinity
+     Parameter 50~N(0.000,infinity)          0.0000            infinity            infinity
+     Parameter 51~IG(-1.000,0.000)         infinity            infinity            infinity
+     Parameter 52~IG(-1.000,0.000)         infinity            infinity            infinity
+     Parameter 53~IG(-1.000,0.000)         infinity            infinity            infinity
+     Parameter 54~IG(-1.000,0.000)         infinity            infinity            infinity
+     Parameter 55~IG(-1.000,0.000)         infinity            infinity            infinity
+     Parameter 56~IG(-1.000,0.000)         infinity            infinity            infinity
+     Parameter 57~IG(-1.000,0.000)         infinity            infinity            infinity
+     Parameter 58~IG(-1.000,0.000)         infinity            infinity            infinity
+     Parameter 59~IG(-1.000,0.000)         infinity            infinity            infinity
+     Parameter 60~IG(-1.000,0.000)         infinity            infinity            infinity
+     Parameter 61~IG(-1.000,0.000)         infinity            infinity            infinity
+     Parameter 62~IG(-1.000,0.000)         infinity            infinity            infinity
+     Parameter 63~IG(-1.000,0.000)         infinity            infinity            infinity
+     Parameter 64~IG(-1.000,0.000)         infinity            infinity            infinity
+     Parameter 65~IG(-1.000,0.000)         infinity            infinity            infinity
+     Parameter 66~IG(-1.000,0.000)         infinity            infinity            infinity
+     Parameter 67~IG(-1.000,0.000)         infinity            infinity            infinity
+     Parameter 68~IG(-1.000,0.000)         infinity            infinity            infinity
+     Parameter 69~IG(-1.000,0.000)         infinity            infinity            infinity
+     Parameter 70~IG(-1.000,0.000)         infinity            infinity            infinity
+     Parameter 71~IG(-1.000,0.000)         infinity            infinity            infinity
+     Parameter 72~IG(-1.000,0.000)         infinity            infinity            infinity
+     Parameter 73~IG(-1.000,0.000)         infinity            infinity            infinity
+     Parameter 74~IG(-1.000,0.000)         infinity            infinity            infinity
+     Parameter 75~IG(-1.000,0.000)         infinity            infinity            infinity
+     Parameter 76~IW(0.000,-6)
+     Parameter 77~IW(0.000,-6)
+     Parameter 78~IW(0.000,-6)
+     Parameter 79~IW(0.000,-6)
+     Parameter 80~IW(0.000,-6)
+     Parameter 81~IW(0.000,-6)
+     Parameter 82~IW(0.000,-6)
+     Parameter 83~IW(0.000,-6)
+     Parameter 84~IW(0.000,-6)
+     Parameter 85~IW(0.000,-6)
+
+
+TECHNICAL 8 OUTPUT
+
+   TECHNICAL 8 OUTPUT FOR BAYES ESTIMATION
+
+     CHAIN    BSEED
+     1        0
+     2        285380
+     3        253358
+
+                     POTENTIAL       PARAMETER WITH
+     ITERATION    SCALE REDUCTION      HIGHEST PSR
+     100              1.034               5
+
+
+
+     Kolmogorov-Smirnov comparing posterior distributions across chains 1 and 2 using 100 draws.
+
+
+
+
+
+     Parameter   KS Statistic P-value
+     Parameter 25    0.2000    0.2408
+     Parameter 8    0.1800    0.3584
+     Parameter 79    0.1800    0.3584
+     Parameter 5    0.1800    0.3584
+     Parameter 6    0.1800    0.3584
+     Parameter 14    0.1800    0.3584
+     Parameter 33    0.1600    0.5077
+     Parameter 68    0.1600    0.5077
+     Parameter 36    0.1600    0.5077
+     Parameter 9    0.1400    0.6779
+     Parameter 80    0.1400    0.6779
+     Parameter 81    0.1400    0.6779
+     Parameter 1    0.1400    0.6779
+     Parameter 26    0.1400    0.6779
+     Parameter 64    0.1400    0.6779
+     Parameter 17    0.1400    0.6779
+     Parameter 75    0.1400    0.6779
+     Parameter 51    0.1400    0.6779
+     Parameter 29    0.1400    0.6779
+     Parameter 65    0.1200    0.8409
+     Parameter 70    0.1200    0.8409
+     Parameter 37    0.1200    0.8409
+     Parameter 40    0.1200    0.8409
+     Parameter 54    0.1200    0.8409
+     Parameter 55    0.1200    0.8409
+     Parameter 10    0.1200    0.8409
+     Parameter 77    0.1200    0.8409
+     Parameter 83    0.1200    0.8409
+     Parameter 31    0.1200    0.8409
+     Parameter 35    0.1000    0.9541
+     Parameter 19    0.1000    0.9541
+     Parameter 23    0.1000    0.9541
+     Parameter 50    0.1000    0.9541
+     Parameter 58    0.1000    0.9541
+     Parameter 60    0.1000    0.9541
+     Parameter 84    0.1000    0.9541
+     Parameter 24    0.1000    0.9541
+     Parameter 13    0.1000    0.9541
+     Parameter 56    0.1000    0.9541
+     Parameter 15    0.1000    0.9541
+     Parameter 49    0.1000    0.9541
+     Parameter 2    0.0800    0.9958
+     Parameter 67    0.0800    0.9958
+     Parameter 34    0.0800    0.9958
+     Parameter 69    0.0800    0.9958
+     Parameter 73    0.0800    0.9958
+     Parameter 74    0.0800    0.9958
+     Parameter 44    0.0800    0.9958
+     Parameter 46    0.0800    0.9958
+     Parameter 53    0.0800    0.9958
+     Parameter 57    0.0800    0.9958
+     Parameter 82    0.0800    0.9958
+     Parameter 61    0.0800    0.9958
+     Parameter 76    0.0800    0.9958
+     Parameter 16    0.0800    0.9958
+     Parameter 43    0.0800    0.9958
+     Parameter 62    0.0600    1.0000
+     Parameter 32    0.0600    1.0000
+     Parameter 45    0.0600    1.0000
+     Parameter 42    0.0600    1.0000
+     Parameter 38    0.0600    1.0000
+     Parameter 21    0.0600    1.0000
+     Parameter 22    0.0600    1.0000
+     Parameter 7    0.0600    1.0000
+     Parameter 12    0.0600    1.0000
+     Parameter 71    0.0600    1.0000
+     Parameter 63    0.0600    1.0000
+     Parameter 78    0.0600    1.0000
+     Parameter 59    0.0400    1.0000
+     Parameter 66    0.0400    1.0000
+     Parameter 27    0.0400    1.0000
+     Parameter 3    0.0400    1.0000
+     Parameter 28    0.0400    1.0000
+     Parameter 11    0.0400    1.0000
+     Parameter 30    0.0400    1.0000
+     Parameter 52    0.0400    1.0000
+     Parameter 85    0.0400    1.0000
+     Parameter 20    0.0400    1.0000
+     Parameter 39    0.0400    1.0000
+     Parameter 47    0.0400    1.0000
+     Parameter 18    0.0200    1.0000
+     Parameter 4    0.0200    1.0000
+     Parameter 48    0.0200    1.0000
+     Parameter 72    0.0200    1.0000
+     Parameter 41    0.0200    1.0000
+
+
+
+     Kolmogorov-Smirnov comparing posterior distributions across chains 1 and 3 using 100 draws.
+
+
+
+
+
+     Parameter   KS Statistic P-value
+     Parameter 5    0.2200    0.1546
+     Parameter 23    0.2200    0.1546
+     Parameter 35    0.1800    0.3584
+     Parameter 60    0.1800    0.3584
+     Parameter 65    0.1600    0.5077
+     Parameter 8    0.1600    0.5077
+     Parameter 71    0.1600    0.5077
+     Parameter 77    0.1600    0.5077
+     Parameter 11    0.1600    0.5077
+     Parameter 24    0.1600    0.5077
+     Parameter 25    0.1600    0.5077
+     Parameter 14    0.1600    0.5077
+     Parameter 9    0.1400    0.6779
+     Parameter 16    0.1400    0.6779
+     Parameter 74    0.1400    0.6779
+     Parameter 4    0.1200    0.8409
+     Parameter 85    0.1200    0.8409
+     Parameter 50    0.1200    0.8409
+     Parameter 55    0.1200    0.8409
+     Parameter 56    0.1200    0.8409
+     Parameter 57    0.1200    0.8409
+     Parameter 26    0.1200    0.8409
+     Parameter 17    0.1200    0.8409
+     Parameter 79    0.1200    0.8409
+     Parameter 43    0.1200    0.8409
+     Parameter 32    0.1000    0.9541
+     Parameter 42    0.1000    0.9541
+     Parameter 75    0.1000    0.9541
+     Parameter 40    0.1000    0.9541
+     Parameter 21    0.1000    0.9541
+     Parameter 49    0.1000    0.9541
+     Parameter 58    0.1000    0.9541
+     Parameter 30    0.1000    0.9541
+     Parameter 63    0.1000    0.9541
+     Parameter 68    0.1000    0.9541
+     Parameter 84    0.1000    0.9541
+     Parameter 3    0.1000    0.9541
+     Parameter 80    0.1000    0.9541
+     Parameter 29    0.1000    0.9541
+     Parameter 64    0.0800    0.9958
+     Parameter 46    0.0800    0.9958
+     Parameter 66    0.0800    0.9958
+     Parameter 20    0.0800    0.9958
+     Parameter 19    0.0800    0.9958
+     Parameter 39    0.0800    0.9958
+     Parameter 82    0.0800    0.9958
+     Parameter 10    0.0800    0.9958
+     Parameter 1    0.0800    0.9958
+     Parameter 22    0.0800    0.9958
+     Parameter 2    0.0800    0.9958
+     Parameter 48    0.0800    0.9958
+     Parameter 12    0.0800    0.9958
+     Parameter 6    0.0800    0.9958
+     Parameter 53    0.0800    0.9958
+     Parameter 67    0.0800    0.9958
+     Parameter 37    0.0800    0.9958
+     Parameter 13    0.0800    0.9958
+     Parameter 76    0.0800    0.9958
+     Parameter 54    0.0800    0.9958
+     Parameter 28    0.0600    1.0000
+     Parameter 78    0.0600    1.0000
+     Parameter 15    0.0600    1.0000
+     Parameter 31    0.0600    1.0000
+     Parameter 45    0.0600    1.0000
+     Parameter 81    0.0600    1.0000
+     Parameter 34    0.0600    1.0000
+     Parameter 51    0.0600    1.0000
+     Parameter 47    0.0600    1.0000
+     Parameter 38    0.0600    1.0000
+     Parameter 69    0.0600    1.0000
+     Parameter 62    0.0600    1.0000
+     Parameter 83    0.0600    1.0000
+     Parameter 7    0.0600    1.0000
+     Parameter 33    0.0600    1.0000
+     Parameter 72    0.0600    1.0000
+     Parameter 59    0.0600    1.0000
+     Parameter 61    0.0600    1.0000
+     Parameter 44    0.0600    1.0000
+     Parameter 70    0.0400    1.0000
+     Parameter 27    0.0400    1.0000
+     Parameter 73    0.0400    1.0000
+     Parameter 52    0.0400    1.0000
+     Parameter 41    0.0400    1.0000
+     Parameter 18    0.0400    1.0000
+     Parameter 36    0.0200    1.0000
+
+
+
+     Kolmogorov-Smirnov comparing posterior distributions across chains 2 and 3 using 100 draws.
+
+
+
+
+
+     Parameter   KS Statistic P-value
+     Parameter 65    0.1800    0.3584
+     Parameter 33    0.1800    0.3584
+     Parameter 79    0.1800    0.3584
+     Parameter 23    0.1800    0.3584
+     Parameter 56    0.1800    0.3584
+     Parameter 71    0.1800    0.3584
+     Parameter 32    0.1600    0.5077
+     Parameter 82    0.1400    0.6779
+     Parameter 45    0.1400    0.6779
+     Parameter 6    0.1400    0.6779
+     Parameter 73    0.1400    0.6779
+     Parameter 74    0.1400    0.6779
+     Parameter 10    0.1400    0.6779
+     Parameter 80    0.1400    0.6779
+     Parameter 29    0.1400    0.6779
+     Parameter 30    0.1400    0.6779
+     Parameter 60    0.1400    0.6779
+     Parameter 64    0.1200    0.8409
+     Parameter 2    0.1200    0.8409
+     Parameter 35    0.1200    0.8409
+     Parameter 36    0.1200    0.8409
+     Parameter 85    0.1200    0.8409
+     Parameter 63    0.1200    0.8409
+     Parameter 16    0.1200    0.8409
+     Parameter 34    0.1200    0.8409
+     Parameter 40    0.1200    0.8409
+     Parameter 69    0.1200    0.8409
+     Parameter 17    0.1200    0.8409
+     Parameter 5    0.1200    0.8409
+     Parameter 7    0.1200    0.8409
+     Parameter 8    0.1000    0.9541
+     Parameter 67    0.1000    0.9541
+     Parameter 75    0.1000    0.9541
+     Parameter 38    0.1000    0.9541
+     Parameter 77    0.1000    0.9541
+     Parameter 19    0.1000    0.9541
+     Parameter 83    0.1000    0.9541
+     Parameter 43    0.1000    0.9541
+     Parameter 11    0.1000    0.9541
+     Parameter 12    0.1000    0.9541
+     Parameter 50    0.1000    0.9541
+     Parameter 15    0.1000    0.9541
+     Parameter 20    0.1000    0.9541
+     Parameter 42    0.0800    0.9958
+     Parameter 78    0.0800    0.9958
+     Parameter 66    0.0800    0.9958
+     Parameter 84    0.0800    0.9958
+     Parameter 44    0.0800    0.9958
+     Parameter 22    0.0800    0.9958
+     Parameter 46    0.0800    0.9958
+     Parameter 47    0.0800    0.9958
+     Parameter 51    0.0800    0.9958
+     Parameter 54    0.0800    0.9958
+     Parameter 70    0.0800    0.9958
+     Parameter 1    0.0800    0.9958
+     Parameter 53    0.0800    0.9958
+     Parameter 14    0.0800    0.9958
+     Parameter 4    0.0800    0.9958
+     Parameter 31    0.0800    0.9958
+     Parameter 21    0.0600    1.0000
+     Parameter 72    0.0600    1.0000
+     Parameter 68    0.0600    1.0000
+     Parameter 13    0.0600    1.0000
+     Parameter 59    0.0600    1.0000
+     Parameter 62    0.0600    1.0000
+     Parameter 61    0.0600    1.0000
+     Parameter 41    0.0600    1.0000
+     Parameter 76    0.0600    1.0000
+     Parameter 25    0.0400    1.0000
+     Parameter 9    0.0400    1.0000
+     Parameter 52    0.0400    1.0000
+     Parameter 27    0.0400    1.0000
+     Parameter 49    0.0400    1.0000
+     Parameter 28    0.0400    1.0000
+     Parameter 37    0.0400    1.0000
+     Parameter 39    0.0400    1.0000
+     Parameter 18    0.0400    1.0000
+     Parameter 24    0.0400    1.0000
+     Parameter 3    0.0400    1.0000
+     Parameter 48    0.0400    1.0000
+     Parameter 26    0.0400    1.0000
+     Parameter 58    0.0400    1.0000
+     Parameter 57    0.0400    1.0000
+     Parameter 81    0.0200    1.0000
+     Parameter 55    0.0200    1.0000
+
+
+
+     Simulated prior distributions
+
+     Parameter       Prior Mean  Prior Variance  Prior Std. Dev.
+
+
+     Parameter 1 Improper Prior
+     Parameter 2 Improper Prior
+     Parameter 3 Improper Prior
+     Parameter 4 Improper Prior
+     Parameter 5 Improper Prior
+     Parameter 6 Improper Prior
+     Parameter 7 Improper Prior
+     Parameter 8 Improper Prior
+     Parameter 9 Improper Prior
+     Parameter 10 Improper Prior
+     Parameter 11 Improper Prior
+     Parameter 12 Improper Prior
+     Parameter 13 Improper Prior
+     Parameter 14 Improper Prior
+     Parameter 15 Improper Prior
+     Parameter 16 Improper Prior
+     Parameter 17 Improper Prior
+     Parameter 18 Improper Prior
+     Parameter 19 Improper Prior
+     Parameter 20 Improper Prior
+     Parameter 21 Improper Prior
+     Parameter 22 Improper Prior
+     Parameter 23 Improper Prior
+     Parameter 24 Improper Prior
+     Parameter 25 Improper Prior
+     Parameter 26 Improper Prior
+     Parameter 27 Improper Prior
+     Parameter 28 Improper Prior
+     Parameter 29 Improper Prior
+     Parameter 30 Improper Prior
+     Parameter 31 Improper Prior
+     Parameter 32 Improper Prior
+     Parameter 33 Improper Prior
+     Parameter 34 Improper Prior
+     Parameter 35 Improper Prior
+     Parameter 36 Improper Prior
+     Parameter 37 Improper Prior
+     Parameter 38 Improper Prior
+     Parameter 39 Improper Prior
+     Parameter 40 Improper Prior
+     Parameter 41 Improper Prior
+     Parameter 42 Improper Prior
+     Parameter 43 Improper Prior
+     Parameter 44 Improper Prior
+     Parameter 45 Improper Prior
+     Parameter 46 Improper Prior
+     Parameter 47 Improper Prior
+     Parameter 48 Improper Prior
+     Parameter 49 Improper Prior
+     Parameter 50 Improper Prior
+     Parameter 51 Improper Prior
+     Parameter 52 Improper Prior
+     Parameter 53 Improper Prior
+     Parameter 54 Improper Prior
+     Parameter 55 Improper Prior
+     Parameter 56 Improper Prior
+     Parameter 57 Improper Prior
+     Parameter 58 Improper Prior
+     Parameter 59 Improper Prior
+     Parameter 60 Improper Prior
+     Parameter 61 Improper Prior
+     Parameter 62 Improper Prior
+     Parameter 63 Improper Prior
+     Parameter 64 Improper Prior
+     Parameter 65 Improper Prior
+     Parameter 66 Improper Prior
+     Parameter 67 Improper Prior
+     Parameter 68 Improper Prior
+     Parameter 69 Improper Prior
+     Parameter 70 Improper Prior
+     Parameter 71 Improper Prior
+     Parameter 72 Improper Prior
+     Parameter 73 Improper Prior
+     Parameter 74 Improper Prior
+     Parameter 75 Improper Prior
+     Parameter 76 Improper Prior
+     Parameter 77 Improper Prior
+     Parameter 78 Improper Prior
+     Parameter 79 Improper Prior
+     Parameter 80 Improper Prior
+     Parameter 81 Improper Prior
+     Parameter 82 Improper Prior
+     Parameter 83 Improper Prior
+     Parameter 84 Improper Prior
+     Parameter 85 Improper Prior
+
+
+     Beginning Time:  22:41:48
+        Ending Time:  22:41:50
+       Elapsed Time:  00:00:02
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2012 Muthen & Muthen
