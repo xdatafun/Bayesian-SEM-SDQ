@@ -1,0 +1,10 @@
+wave1_5f-step2.out:          Estimated Number of Parameters (pD)     149.406
+wave10_5f-step2.out:          Estimated Number of Parameters (pD)     145.653
+wave2_5f-step2.out:          Estimated Number of Parameters (pD)     141.397
+wave3_5f-step2.out:          Estimated Number of Parameters (pD)     128.612
+wave4_5f-step2.out:          Estimated Number of Parameters (pD)     155.534
+wave5_5f-step2.out:          Estimated Number of Parameters (pD)     142.286
+wave6_5f-step2.out:          Estimated Number of Parameters (pD)     152.161
+wave7_5f-step2.out:          Estimated Number of Parameters (pD)     137.710
+wave8_5f-step2.out:          Estimated Number of Parameters (pD)     142.005
+wave9_5f-step2.out:          Estimated Number of Parameters (pD)     140.446
